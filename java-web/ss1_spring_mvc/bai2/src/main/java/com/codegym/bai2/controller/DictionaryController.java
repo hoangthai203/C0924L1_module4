@@ -14,10 +14,10 @@ public class DictionaryController {
 
     static {
         dictionary.put("hello", "xin chào");
-        dictionary.put("book", "quyển sách");
-        dictionary.put("computer", "máy tính");
+        dictionary.put("mother", "mẹ");
+        dictionary.put("father", "bố");
         dictionary.put("dog", "con chó");
-        dictionary.put("cat", "con mèo");
+        dictionary.put("shop", "cửa hàng");
     }
 
     @GetMapping("/")
