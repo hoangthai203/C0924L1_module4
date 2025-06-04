@@ -1,0 +1,48 @@
+plugins {
+    id 'java'
+    id 'war'
+}
+
+group 'com.codegym'
+version '1.0-SNAPSHOT'
+
+sourceCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    // Spring MVC
+    implementation 'org.springframework:spring-webmvc:5.3.21'
+
+    // Spring ORM (for JPA support)
+    implementation 'org.springframework:spring-orm:5.3.21'
+
+    // Spring Context
+    implementation 'org.springframework:spring-context:5.3.21'
+
+    // Hibernate Core
+    implementation 'org.hibernate:hibernate-core:5.6.9.Final'
+
+    // Hibernate EntityManager
+    implementation 'org.hibernate:hibernate-entitymanager:5.6.9.Final'
+
+    // MySQL Connector
+    implementation 'mysql:mysql-connector-java:8.0.33'
+
+    // Thymeleaf
+    implementation 'org.thymeleaf:thymeleaf-spring5:3.0.15.RELEASE'
+
+    // Servlet API
+    providedCompile 'javax.servlet:javax.servlet-api:4.0.1'
+
+    // JPA API
+    implementation 'javax.persistence:javax.persistence-api:2.2'
+
+    // Spring TX (Transaction)
+    implementation 'org.springframework:spring-tx:5.3.21'
+
+    // Test dependencies
+    testImplementation 'junit:junit:4.13.2'
+}

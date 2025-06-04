@@ -1,0 +1,331 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="ea15a249-e2f0-4c0d-a8b7-418ad47c00cc" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/../../../../java-web/ss1_spring_mvc/bai1/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../java-web/ss1_spring_mvc/bai1/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../java-web/ss1_spring_mvc/bai1/.idea/.name" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../java-web/ss1_spring_mvc/bai1/.idea/artifacts/demo_main_war_exploded.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../java-web/ss1_spring_mvc/bai1/.idea/gradle.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../java-web/ss1_spring_mvc/bai1/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../java-web/ss1_spring_mvc/bai1/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../java-web/ss1_spring_mvc/bai1/build.gradle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../java-web/ss1_spring_mvc/bai1/gradle/wrapper/gradle-wrapper.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../java-web/ss1_spring_mvc/bai1/gradle/wrapper/gradle-wrapper.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../java-web/ss1_spring_mvc/bai1/gradlew" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../java-web/ss1_spring_mvc/bai1/gradlew.bat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../java-web/ss1_spring_mvc/bai1/settings.gradle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../java-web/ss1_spring_mvc/bai1/src/main/java/com/codegym/demo/controller/CurrencyConverterController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../java-web/ss1_spring_mvc/bai1/src/main/webapp/WEB-INF/applicationContext.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../java-web/ss1_spring_mvc/bai1/src/main/webapp/WEB-INF/dispatcher-servlet.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../java-web/ss1_spring_mvc/bai1/src/main/webapp/WEB-INF/views/index.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../java-web/ss1_spring_mvc/bai1/src/main/webapp/WEB-INF/web.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../java-web/ss1_spring_mvc/bai2/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../java-web/ss1_spring_mvc/bai2/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../java-web/ss1_spring_mvc/bai2/.idea/gradle.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../java-web/ss1_spring_mvc/bai2/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../java-web/ss1_spring_mvc/bai2/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../java-web/ss1_spring_mvc/bai2/build.gradle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../java-web/ss1_spring_mvc/bai2/gradle/wrapper/gradle-wrapper.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../java-web/ss1_spring_mvc/bai2/gradle/wrapper/gradle-wrapper.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../java-web/ss1_spring_mvc/bai2/gradlew" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../java-web/ss1_spring_mvc/bai2/gradlew.bat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../java-web/ss1_spring_mvc/bai2/settings.gradle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../java-web/ss1_spring_mvc/bai2/src/main/java/com/codegym/bai2/controller/DictionaryController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../java-web/ss1_spring_mvc/bai2/src/main/webapp/WEB-INF/applicationContext.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../java-web/ss1_spring_mvc/bai2/src/main/webapp/WEB-INF/dispatcher-servlet.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../java-web/ss1_spring_mvc/bai2/src/main/webapp/WEB-INF/views/index.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../java-web/ss1_spring_mvc/bai2/src/main/webapp/WEB-INF/web.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../java-web/ss2_spring_controller/bai1/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../java-web/ss2_spring_controller/bai1/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../java-web/ss2_spring_controller/bai1/.idea/gradle.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../java-web/ss2_spring_controller/bai1/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../java-web/ss2_spring_controller/bai1/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../java-web/ss2_spring_controller/bai1/build.gradle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../java-web/ss2_spring_controller/bai1/gradle/wrapper/gradle-wrapper.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../java-web/ss2_spring_controller/bai1/gradle/wrapper/gradle-wrapper.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../java-web/ss2_spring_controller/bai1/gradlew" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../java-web/ss2_spring_controller/bai1/gradlew.bat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../java-web/ss2_spring_controller/bai1/settings.gradle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../java-web/ss2_spring_controller/bai1/src/main/java/com/codegym/bai1/controller/SandwichController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../java-web/ss2_spring_controller/bai1/src/main/webapp/WEB-INF/applicationContext.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../java-web/ss2_spring_controller/bai1/src/main/webapp/WEB-INF/dispatcher-servlet.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../java-web/ss2_spring_controller/bai1/src/main/webapp/WEB-INF/views/index.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../java-web/ss2_spring_controller/bai1/src/main/webapp/WEB-INF/views/result.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../java-web/ss2_spring_controller/bai1/src/main/webapp/WEB-INF/web.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../java-web/ss2_spring_controller/bai2/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../java-web/ss2_spring_controller/bai2/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../java-web/ss2_spring_controller/bai2/.idea/gradle.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../java-web/ss2_spring_controller/bai2/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../java-web/ss2_spring_controller/bai2/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../java-web/ss2_spring_controller/bai2/build.gradle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../java-web/ss2_spring_controller/bai2/gradle/wrapper/gradle-wrapper.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../java-web/ss2_spring_controller/bai2/gradle/wrapper/gradle-wrapper.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../java-web/ss2_spring_controller/bai2/gradlew" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../java-web/ss2_spring_controller/bai2/gradlew.bat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../java-web/ss2_spring_controller/bai2/settings.gradle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../java-web/ss2_spring_controller/bai2/src/main/java/com/codegym/bai2/controller/CalculatorController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../java-web/ss2_spring_controller/bai2/src/main/webapp/WEB-INF/applicationContext.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../java-web/ss2_spring_controller/bai2/src/main/webapp/WEB-INF/dispatcher-servlet.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../java-web/ss2_spring_controller/bai2/src/main/webapp/WEB-INF/views/index.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../java-web/ss2_spring_controller/bai2/src/main/webapp/WEB-INF/web.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../java-web/ss3_databinding_form/bai_tap/bai_tap1/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../java-web/ss3_databinding_form/bai_tap/bai_tap1/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../java-web/ss3_databinding_form/bai_tap/bai_tap1/.idea/gradle.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../java-web/ss3_databinding_form/bai_tap/bai_tap1/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../java-web/ss3_databinding_form/bai_tap/bai_tap1/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../java-web/ss3_databinding_form/bai_tap/bai_tap1/build.gradle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../java-web/ss3_databinding_form/bai_tap/bai_tap1/gradle/wrapper/gradle-wrapper.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../java-web/ss3_databinding_form/bai_tap/bai_tap1/gradle/wrapper/gradle-wrapper.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../java-web/ss3_databinding_form/bai_tap/bai_tap1/gradlew" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../java-web/ss3_databinding_form/bai_tap/bai_tap1/gradlew.bat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../java-web/ss3_databinding_form/bai_tap/bai_tap1/settings.gradle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../java-web/ss3_databinding_form/bai_tap/bai_tap1/src/main/java/com/codegym/bai_tap1/controller/EmailController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../java-web/ss3_databinding_form/bai_tap/bai_tap1/src/main/java/com/codegym/bai_tap1/model/EmailConfig.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../java-web/ss3_databinding_form/bai_tap/bai_tap1/src/main/webapp/WEB-INF/applicationContext.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../java-web/ss3_databinding_form/bai_tap/bai_tap1/src/main/webapp/WEB-INF/dispatcher-servlet.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../java-web/ss3_databinding_form/bai_tap/bai_tap1/src/main/webapp/WEB-INF/views/index.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../java-web/ss3_databinding_form/bai_tap/bai_tap1/src/main/webapp/WEB-INF/views/result.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../java-web/ss3_databinding_form/bai_tap/bai_tap1/src/main/webapp/WEB-INF/web.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../java-web/ss4_views_thymeleaf/bai_tap/quan_ly_san_pham/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../java-web/ss4_views_thymeleaf/bai_tap/quan_ly_san_pham/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../java-web/ss4_views_thymeleaf/bai_tap/quan_ly_san_pham/.idea/gradle.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../java-web/ss4_views_thymeleaf/bai_tap/quan_ly_san_pham/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../java-web/ss4_views_thymeleaf/bai_tap/quan_ly_san_pham/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../java-web/ss4_views_thymeleaf/bai_tap/quan_ly_san_pham/build.gradle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../java-web/ss4_views_thymeleaf/bai_tap/quan_ly_san_pham/gradle/wrapper/gradle-wrapper.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../java-web/ss4_views_thymeleaf/bai_tap/quan_ly_san_pham/gradle/wrapper/gradle-wrapper.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../java-web/ss4_views_thymeleaf/bai_tap/quan_ly_san_pham/gradlew" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../java-web/ss4_views_thymeleaf/bai_tap/quan_ly_san_pham/gradlew.bat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../java-web/ss4_views_thymeleaf/bai_tap/quan_ly_san_pham/settings.gradle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../java-web/ss4_views_thymeleaf/bai_tap/quan_ly_san_pham/src/main/java/com/codegym/quan_ly_san_pham/config/AppConfiguration.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../java-web/ss4_views_thymeleaf/bai_tap/quan_ly_san_pham/src/main/java/com/codegym/quan_ly_san_pham/config/AppInitializer.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../java-web/ss4_views_thymeleaf/bai_tap/quan_ly_san_pham/src/main/java/com/codegym/quan_ly_san_pham/controller/ProductController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../java-web/ss4_views_thymeleaf/bai_tap/quan_ly_san_pham/src/main/java/com/codegym/quan_ly_san_pham/model/Product.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../java-web/ss4_views_thymeleaf/bai_tap/quan_ly_san_pham/src/main/java/com/codegym/quan_ly_san_pham/service/IProductService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../java-web/ss4_views_thymeleaf/bai_tap/quan_ly_san_pham/src/main/java/com/codegym/quan_ly_san_pham/service/ProductService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../java-web/ss4_views_thymeleaf/bai_tap/quan_ly_san_pham/src/main/webapp/WEB-INF/views/create.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../java-web/ss4_views_thymeleaf/bai_tap/quan_ly_san_pham/src/main/webapp/WEB-INF/views/delete.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../java-web/ss4_views_thymeleaf/bai_tap/quan_ly_san_pham/src/main/webapp/WEB-INF/views/edit.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../java-web/ss4_views_thymeleaf/bai_tap/quan_ly_san_pham/src/main/webapp/WEB-INF/views/list.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../java-web/ss4_views_thymeleaf/bai_tap/quan_ly_san_pham/src/main/webapp/WEB-INF/views/view.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../java-web/ss4_views_thymeleaf/bai_tap/quan_ly_san_pham/src/main/webapp/WEB-INF/web.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../java-web/ss4_views_thymeleaf/bai_tap/quan_ly_san_pham/src/main/webapp/index.jsp" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ExternalProjectsData">
+    <projectState path="$PROJECT_DIR$">
+      <ProjectState />
+    </projectState>
+  </component>
+  <component name="ExternalProjectsManager">
+    <system id="GRADLE">
+      <state>
+        <projects_view>
+          <tree_state>
+            <expand>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="quan_ly_san_pham" type="f1a62948:ProjectNode" />
+              </path>
+            </expand>
+            <select />
+          </tree_state>
+        </projects_view>
+      </state>
+    </system>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="HTML File" />
+        <option value="spring-beans.schema" />
+        <option value="Interface" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../../../.." />
+  </component>
+  <component name="LogFilters">
+    <option name="FILTER_ERRORS" value="false" />
+    <option name="FILTER_WARNINGS" value="false" />
+    <option name="FILTER_INFO" value="true" />
+    <option name="FILTER_DEBUG" value="true" />
+    <option name="CUSTOM_FILTER" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 3
+}</component>
+  <component name="ProjectId" id="2xj79Bf2ZXLzeZeL8RKMXvYD4xI" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "DefaultHtmlFileTemplate": "HTML File",
+    "Gradle.Build quan_ly_san_pham.executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "Tomcat Server.Tomcat 9.0.1022.executor": "Run",
+    "git-widget-placeholder": "main",
+    "ignore.virus.scanning.warn.message": "true",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "D:/CODEgym/C0924L1_module4/java_web/ss5_orm/bai_tap/demo1",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "vue.rearranger.settings.migration": "true"
+  },
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "mysql"
+    ]
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\CODEgym\C0924L1_module4\java-web\ss4_views_thymeleaf\bai_tap\quan_ly_san_pham\src\main\java\com\codegym\quan_ly_san_pham\config" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\CODEgym\C0924L1_module4\java-web\ss4_views_thymeleaf\bai_tap\quan_ly_san_pham\src\main\webapp\WEB-INF\views" />
+      <recent name="D:\CODEgym\C0924L1_module4\java-web\ss4_views_thymeleaf\bai_tap\quan_ly_san_pham\src\main\resources\templates" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="Tomcat 9.0.1022" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 9.0.1022" ALTERNATIVE_JRE_ENABLED="false" nameIsGenerated="true">
+      <option name="UPDATING_POLICY" value="restart-server" />
+      <deployment>
+        <artifact name="Gradle : com.codegym : quan_ly_san_pham-1.0-SNAPSHOT.war">
+          <settings>
+            <option name="CONTEXT_PATH" value="" />
+          </settings>
+        </artifact>
+      </deployment>
+      <server-settings>
+        <option name="BASE_DIRECTORY_NAME" value="22ab5168-5832-455c-a3f6-3db94cef16dd" />
+      </server-settings>
+      <predefined_log_file enabled="true" id="Tomcat" />
+      <predefined_log_file enabled="true" id="Tomcat Catalina" />
+      <predefined_log_file id="Tomcat Manager" />
+      <predefined_log_file id="Tomcat Host Manager" />
+      <predefined_log_file id="Tomcat Localhost Access" />
+      <RunnerSettings RunnerId="Debug">
+        <option name="DEBUG_PORT" value="50319" />
+      </RunnerSettings>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Cover">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Debug">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Profile">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Run">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <method v="2">
+        <option name="Make" enabled="true" />
+        <option name="BuildArtifacts" enabled="true">
+          <artifact name="Gradle : com.codegym : quan_ly_san_pham-1.0-SNAPSHOT.war" />
+        </option>
+      </method>
+    </configuration>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-jdk-9823dce3aa75-fdfe4dae3a2d-intellij.indexing.shared.core-IU-243.21565.193" />
+        <option value="bundled-js-predefined-d6986cc7102b-e768b9ed790e-JavaScript-IU-243.21565.193" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="ea15a249-e2f0-4c0d-a8b7-418ad47c00cc" name="Changes" comment="" />
+      <created>1748439480876</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1748439480876</updated>
+      <workItem from="1748439482012" duration="2740000" />
+      <workItem from="1748605016541" duration="14000" />
+      <workItem from="1748611025239" duration="3900000" />
+      <workItem from="1748670768390" duration="994000" />
+      <workItem from="1748865718407" duration="209000" />
+      <workItem from="1748865938675" duration="30000" />
+      <workItem from="1748867565026" duration="1046000" />
+      <workItem from="1748869617541" duration="126000" />
+      <workItem from="1748869876830" duration="143000" />
+      <workItem from="1748870609026" duration="620000" />
+      <workItem from="1748871564851" duration="22000" />
+      <workItem from="1748873978123" duration="356000" />
+      <workItem from="1749042916837" duration="223000" />
+      <workItem from="1749043148016" duration="14000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+</project>
