@@ -24,6 +24,11 @@ public class Blog {
 
     private LocalDateTime updatedAt;
 
+    // Thêm relationship với Category
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "category_id")
+    private Category category;
+
     @PrePersist
     protected void onCreate() {
         createdAt = LocalDateTime.now();
@@ -93,5 +98,14 @@ public class Blog {
 
     public void setUpdatedAt(LocalDateTime updatedAt) {
         this.updatedAt = updatedAt;
+    }
+
+    // Getter và setter cho category
+    public Category getCategory() {
+        return category;
+    }
+
+    public void setCategory(Category category) {
+        this.category = category;
     }
 }
