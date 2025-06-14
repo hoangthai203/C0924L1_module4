@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Form Bài Hát</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body class="container mt-4">
+
+<h2 th:text="${song.id == null} ? 'Thêm bài hát' : 'Cập nhật bài hát'"></h2>
+
+<!-- FORM CHUNG CHO CẢ TẠO MỚI VÀ CẬP NHẬT -->
+<form th:object="${song}"
+      th:action="${song.id == null} ? @{/songs/create} : @{/songs/{id}/edit(id=${song.id})}"
+      method="post">
+
+  <!-- Hidden field cho ID khi update -->
+  <input type="hidden" th:field="*{id}" th:if="${song.id != null}"/>
+
+  <div class="mb-3">
+    <label for="name" class="form-label">Tên bài hát</label>
+    <input type="text" id="name" th:field="*{name}" class="form-control"
+           th:classappend="${#fields.hasErrors('name')} ? 'is-invalid' : ''"/>
+    <div class="invalid-feedback" th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></div>
+  </div>
+
+  <div class="mb-3">
+    <label for="artist" class="form-label">Nghệ sĩ</label>
+    <input type="text" id="artist" th:field="*{artist}" class="form-control"
+           th:classappend="${#fields.hasErrors('artist')} ? 'is-invalid' : ''"/>
+    <div class="invalid-feedback" th:if="${#fields.hasErrors('artist')}" th:errors="*{artist}"></div>
+  </div>
+
+  <div class="mb-3">
+    <label for="genre" class="form-label">Thể loại</label>
+    <input type="text" id="genre" th:field="*{genre}" class="form-control"
+           th:classappend="${#fields.hasErrors('genre')} ? 'is-invalid' : ''"/>
+    <div class="invalid-feedback" th:if="${#fields.hasErrors('genre')}" th:errors="*{genre}"></div>
+  </div>
+
+  <button type="submit" class="btn"
+          th:classappend="${song.id == null} ? 'btn-primary' : 'btn-success'"
+          th:text="${song.id == null} ? 'Thêm' : 'Cập nhật'"></button>
+  <a th:href="@{/songs}" class="btn btn-secondary">Quay lại</a>
+</form>
+
+</body>
+</html>
