@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title th:text="${product.name} + ' - Chi tiết sản phẩm'"></title>
+    <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        body {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        .main-container {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            margin: 20px auto;
+            padding: 40px;
+        }
+
+        .product-image {
+            width: 100%;
+            max-width: 400px;
+            height: 400px;
+            object-fit: cover;
+            border-radius: 15px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+            transition: transform 0.3s ease;
+        }
+
+        .product-image:hover {
+            transform: scale(1.05);
+        }
+
+        .product-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        .product-description {
+            font-size: 1.1rem;
+            color: #666;
+            line-height: 1.8;
+            margin-bottom: 30px;
+            padding: 20px;
+            background: rgba(52, 152, 219, 0.1);
+            border-radius: 10px;
+            border-left: 4px solid #3498db;
+        }
+
+        .product-price {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #e74c3c;
+            margin-bottom: 30px;
+        }
+
+        .btn-custom {
+            border-radius: 25px;
+            font-weight: 600;
+            padding: 12px 30px;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            border: none;
+            margin: 10px;
+        }
+
+        .btn-add-cart {
+            background: linear-gradient(45deg, #27ae60, #2ecc71);
+            color: white;
+        }
+
+        .btn-add-cart:hover {
+            background: linear-gradient(45deg, #2ecc71, #27ae60);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(39, 174, 96, 0.4);
+        }
+
+        .btn-back {
+            background: linear-gradient(45deg, #95a5a6, #7f8c8d);
+            color: white;
+        }
+
+        .btn-back:hover {
+            background: linear-gradient(45deg, #7f8c8d, #95a5a6);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(149, 165, 166, 0.4);
+        }
+
+        .feature-list {
+            background: white;
+            border-radius: 15px;
+            padding: 25px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            margin-top: 30px;
+        }
+
+        .feature-item {
+            padding: 10px 0;
+            border-bottom: 1px solid rgba(0,0,0,0.1);
+        }
+
+        .feature-item:last-child {
+            border-bottom: none;
+        }
+
+        .feature-icon {
+            color: #3498db;
+            margin-right: 10px;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="main-container">
+        <div class="row">
+            <div class="col-lg-6 text-center mb-4">
+                <img th:src="@{'/images/phones/' + ${product.id} + '.png'}"
+                     th:alt="${product.name}"
+                     class="product-image"
+                     onerror="this.src='https://via.placeholder.com/400x400/3498db/ffffff?text=Phone+Image'">
+            </div>
+            <div class="col-lg-6">
+                <h1 class="product-title" th:text="${product.name}"></h1>
+                <div class="product-description">
+                    <h5><i class="fas fa-info-circle feature-icon"></i>Mô tả sản phẩm:</h5>
+                    <p th:text="${product.description}"></p>
+                </div>
+                <div class="product-price">
+                    <i class="fas fa-tag me-2"></i>
+                    <span th:text="${#numbers.formatDecimal(product.price, 0, 'POINT', 3, 'COMMA')} + ' đ'"></span>
+                </div>
+
+                <div class="feature-list">
+                    <h5><i class="fas fa-star feature-icon"></i>Tính năng nổi bật:</h5>
+                    <div class="feature-item">
+                        <i class="fas fa-camera feature-icon"></i>
+                        Camera chất lượng cao
+                    </div>
+                    <div class="feature-item">
+                        <i class="fas fa-battery-full feature-icon"></i>
+                        Pin dung lượng lớn
+                    </div>
+                    <div class="feature-item">
+                        <i class="fas fa-shield-alt feature-icon"></i>
+                        Bảo hành chính hãng
+                    </div>
+                    <div class="feature-item">
+                        <i class="fas fa-shipping-fast feature-icon"></i>
+                        Giao hàng miễn phí
+                    </div>
+                </div>
+
+                <div class="text-center mt-4">
+                    <a th:href="@{/add/{id}(id=${product.id})}" class="btn btn-custom btn-add-cart">
+                        <i class="fas fa-cart-plus me-2"></i>Thêm vào giỏ hàng
+                    </a>
+                    <a href="/shop" class="btn btn-custom btn-back">
+                        <i class="fas fa-arrow-left me-2"></i>Quay lại cửa hàng
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

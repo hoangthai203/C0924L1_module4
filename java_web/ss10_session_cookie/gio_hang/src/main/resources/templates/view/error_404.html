@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>404 - Không tìm thấy trang</title>
+  <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+  <style>
+    body {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      min-height: 100vh;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .error-container {
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(10px);
+      border-radius: 20px;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+      padding: 60px 40px;
+      text-align: center;
+      max-width: 600px;
+      width: 90%;
+    }
+
+    .error-number {
+      font-size: 8rem;
+      font-weight: 900;
+      color: #e74c3c;
+      margin-bottom: 20px;
+      text-shadow: 3px 3px 0px rgba(231, 76, 60, 0.2);
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.05); }
+      100% { transform: scale(1); }
+    }
+
+    .error-title {
+      color: #333;
+      font-size: 2rem;
+      font-weight: 700;
+      margin-bottom: 20px;
+    }
+
+    .error-message {
+      font-size: 1.1rem;
+      color: #666;
+      margin-bottom: 40px;
+      line-height: 1.6;
+    }
+
+    .error-icon {
+      font-size: 3rem;
+      color: #e74c3c;
+      margin-bottom: 30px;
+    }
+
+    .btn-back-home {
+      background: linear-gradient(45deg, #3498db, #2980b9);
+      color: white;
+      padding: 15px 40px;
+      border-radius: 25px;
+      font-weight: 600;
+      text-decoration: none;
+      font-size: 1.1rem;
+      transition: all 0.3s ease;
+      border: none;
+      display: inline-block;
+      margin: 10px;
+    }
+
+    .btn-back-home:hover {
+      background: linear-gradient(45deg, #2980b9, #3498db);
+      transform: translateY(-3px);
+      box-shadow: 0 8px 20px rgba(52, 152, 219, 0.4);
+      color: white;
+    }
+
+    .btn-back-shop {
+      background: linear-gradient(45deg, #27ae60, #2ecc71);
+      color: white;
+      padding: 15px 40px;
+      border-radius: 25px;
+      font-weight: 600;
+      text-decoration: none;
+      font-size: 1.1rem;
+      transition: all 0.3s ease;
+      border: none;
+      display: inline-block;
+      margin: 10px;
+    }
+
+    .btn-back-shop:hover {
+      background: linear-gradient(45deg, #2ecc71, #27ae60);
+      transform: translateY(-3px);
+      box-shadow: 0 8px 20px rgba(39, 174, 96, 0.4);
+      color: white;
+    }
+
+    .floating-icons {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      overflow: hidden;
+    }
+
+    .floating-icon {
+      position: absolute;
+      color: rgba(255, 255, 255, 0.1);
+      font-size: 2rem;
+      animation: float-around 8s ease-in-out infinite;
+    }
+
+    @keyframes float-around {
+      0%, 100% { transform: translateY(0px) rotate(0deg); }
+      25% { transform: translateY(-30px) rotate(90deg); }
+      50% { transform: translateY(-60px) rotate(180deg); }
+      75% { transform: translateY(-30px) rotate(270deg); }
+    }
+  </style>
+</head>
+<body>
+<div class="floating-icons">
+  <i class="fas fa-exclamation-triangle floating-icon" style="top: 10%; left: 10%; animation-delay: 0s;"></i>
+  <i class="fas fa-question-circle floating-icon" style="top: 20%; right: 15%; animation-delay: 2s;"></i>
+  <i class="fas fa-search floating-icon" style="bottom: 30%; left: 20%; animation-delay: 4s;"></i>
+  <i class="fas fa-home floating-icon" style="bottom: 20%; right: 10%; animation-delay: 6s;"></i>
+</div>
+
+<div class="error-container">
+  <div class="error-number">404</div>
+  <i class="fas fa-search error-icon"></i>
+  <h1 class="error-title">Không tìm thấy trang</h1>
+  <p class="error-message">
+    Rất tiếc, trang bạn tìm kiếm không tồn tại hoặc đã bị di chuyển.
+    Hãy kiểm tra lại đường dẫn hoặc quay về trang chủ.
+  </p>
+
+  <div>
+    <a href="/" class="btn-back-home">
+      <i class="fas fa-home me-2"></i>Về trang chủ
+    </a>
+    <a href="/shop" class="btn-back-shop">
+      <i class="fas fa-store me-2"></i>Về cửa hàng
+    </a>
+  </div>
+</div>
+</body>
+</html>
+<body>
+<div class="floating-elements">
+  <i class="fas fa-mobile-alt floating-phone" style="top: 10%; left: 5%; animation-delay: 0s;"></i>
+  <i class="fas fa-mobile-alt floating-phone" style="top: 20%; right: 10%; animation-delay: 2s;"></i>
+  <i class="fas fa-mobile-alt floating-phone" style="bottom: 30%; left: 8%; animation-delay: 4s;"></i>
+</div>
+
+<div class="container">
+  <div class="main-container">
+    <div class="header">
+      <h1><i class="fas fa-mobile-alt me-3"></i>Cửa hàng điện thoại</h1>
+      <p>Khám phá những chiếc điện thoại tuyệt vời nhất</p>
+    </div>
+
+    <div class="row">
+      <div class="col-lg-4 col-md-6 mb-4" th:each="product : ${products}">
+        <div class="card product-card h-100">
+          <img th:src="@{'/images/phones/' + ${product.id} + '.jpg'}"
+               th:alt="${product.name}"
+               class="product-image"
+               onerror="this.src='https://via.placeholder.com/300x200/3498db/ffffff?text=Phone+Image'">
+          <div class="card-body d-flex flex-column">
+            <h5 class="product-title" th:text="${product.name}"></h5>
+            <p class="product-description" th:text="${product.description}"></p>
+            <p class="product-price mt-auto"
+               th:text="${#numbers.formatDecimal(product.price, 0, 'POINT', 3, 'COMMA')} + ' đ'"></p>
+            <div class="text-center">
+              <a th:href="@{/product/{id}(id=${product.id})}"
+                 class="btn btn-custom btn-detail">
+                <i class="fas fa-eye me-2"></i>Chi tiết
+              </a>
+              <a th:href="@{/add/{id}(id=${product.id})}"
+                 class="btn btn-custom btn-add-cart">
+                <i class="fas fa-cart-plus me-2"></i>Thêm vào giỏ
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<a href="/cart" class="cart-btn" title="Xem giỏ hàng">
+  <i class="fas fa-shopping-cart"></i>
+</a>
+</body>
+</html>
