@@ -4,25 +4,76 @@
   <meta charset="UTF-8">
   <title>Viết bài mới</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
 </head>
-<body class="container mt-4">
-<h1 class="mb-4">Viết bài mới</h1>
+<body>
+<div class="container mt-4">
+  <!-- Navigation -->
+  <nav class="mb-4">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item"><a href="/blogs">Trang chủ</a></li>
+      <li class="breadcrumb-item active">Viết bài mới</li>
+    </ol>
+  </nav>
 
-<form th:action="@{/blogs/create}" th:object="${blog}" method="post">
-  <div class="mb-3">
-    <label class="form-label">Tiêu đề</label>
-    <input type="text" class="form-control" th:field="*{title}" required>
+  <div class="row">
+    <div class="col-md-8 mx-auto">
+      <div class="card shadow">
+        <div class="card-header bg-primary text-white">
+          <h1 class="card-title mb-0"><i class="fas fa-pen-nib me-2"></i>Viết bài mới</h1>
+        </div>
+        <div class="card-body">
+          <form th:action="@{/blogs/create}" th:object="${blog}" method="post">
+            <div class="mb-3">
+              <label class="form-label fw-bold">
+                <i class="fas fa-heading me-1"></i>Tiêu đề <span class="text-danger">*</span>
+              </label>
+              <input type="text" class="form-control" th:field="*{title}"
+                     placeholder="Nhập tiêu đề bài viết..." required>
+            </div>
+
+            <div class="mb-3">
+              <label class="form-label fw-bold">
+                <i class="fas fa-user me-1"></i>Tác giả <span class="text-danger">*</span>
+              </label>
+              <input type="text" class="form-control" th:field="*{author}"
+                     placeholder="Nhập tên tác giả..." required>
+            </div>
+
+            <div class="mb-3">
+              <label class="form-label fw-bold">
+                <i class="fas fa-tags me-1"></i>Danh mục
+              </label>
+              <select class="form-select" th:field="*{category.id}">
+                <option value="">-- Chọn danh mục --</option>
+                <option th:each="category : ${categories}"
+                        th:value="${category.id}"
+                        th:text="${category.name}"></option>
+              </select>
+            </div>
+
+            <div class="mb-4">
+              <label class="form-label fw-bold">
+                <i class="fas fa-align-left me-1"></i>Nội dung <span class="text-danger">*</span>
+              </label>
+              <textarea class="form-control" th:field="*{content}" rows="10"
+                        placeholder="Viết nội dung bài viết của bạn..." required></textarea>
+              <div class="form-text">Hãy viết nội dung sinh động và hấp dẫn!</div>
+            </div>
+
+            <div class="d-flex gap-2">
+              <button type="submit" class="btn btn-success">
+                <i class="fas fa-paper-plane me-1"></i>Đăng bài
+              </button>
+              <a href="/blogs" class="btn btn-outline-secondary">
+                <i class="fas fa-arrow-left me-1"></i>Quay lại
+              </a>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
   </div>
-  <div class="mb-3">
-    <label class="form-label">Tác giả</label>
-    <input type="text" class="form-control" th:field="*{author}" required>
-  </div>
-  <div class="mb-3">
-    <label class="form-label">Nội dung</label>
-    <textarea class="form-control" th:field="*{content}" rows="8" required></textarea>
-  </div>
-  <button type="submit" class="btn btn-success">Đăng bài</button>
-  <a href="/blogs" class="btn btn-secondary">Quay lại</a>
-</form>
+</div>
 </body>
 </html>

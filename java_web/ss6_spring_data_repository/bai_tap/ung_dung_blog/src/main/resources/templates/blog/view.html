@@ -2,16 +2,280 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
   <meta charset="UTF-8">
-  <title>Xem bài viết</title>
+  <title th:text="${blog.title}">Chi tiết bài viết</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+  <style>
+    .blog-content {
+      line-height: 1.8;
+      font-size: 1.1rem;
+    }
+    .blog-meta {
+      background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+      border-radius: 10px;
+    }
+    .action-buttons {
+      position: sticky;
+      top: 20px;
+      z-index: 100;
+    }
+    .reading-progress {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 0%;
+      height: 4px;
+      background: linear-gradient(90deg, #007bff, #28a745);
+      z-index: 1000;
+      transition: width 0.3s ease;
+    }
+  </style>
 </head>
-<body class="container mt-4">
-<h1 th:text="${blog.title}" class="mb-3"></h1>
-<p><strong>Tác giả:</strong> <span th:text="${blog.author}"></span></p>
-<p><strong>Ngày đăng:</strong> <span th:text="${#temporals.format(blog.createdAt, 'dd/MM/yyyy HH:mm')}"></span></p>
-<hr>
-<div th:text="${blog.content}" class="mb-4"></div>
+<body>
+<!-- Reading Progress Bar -->
+<div class="reading-progress" id="readingProgress"></div>
 
-<a href="/blogs" class="btn btn-secondary">Quay lại</a>
+<div class="container mt-4">
+  <!-- Navigation -->
+  <nav class="mb-4">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item"><a href="/blogs">Trang chủ</a></li>
+      <li class="breadcrumb-item active" th:text="${blog.title}">Chi tiết bài viết</li>
+    </ol>
+  </nav>
+
+  <div class="row">
+    <!-- Main Content -->
+    <div class="col-lg-8">
+      <!-- Blog Header -->
+      <div class="card shadow-sm mb-4">
+        <div class="card-body">
+          <div class="d-flex justify-content-between align-items-start mb-3">
+            <div class="flex-grow-1">
+              <h1 class="display-5 fw-bold mb-3" th:text="${blog.title}"></h1>
+
+              <!-- Blog Meta Information -->
+              <div class="blog-meta p-3 mb-4">
+                <div class="row">
+                  <div class="col-md-6">
+                    <div class="d-flex align-items-center mb-2">
+                      <i class="fas fa-user-circle text-primary me-2"></i>
+                      <span class="fw-bold">Tác giả:</span>
+                      <span class="ms-2" th:text="${blog.author}"></span>
+                    </div>
+                    <div class="d-flex align-items-center mb-2">
+                      <i class="fas fa-calendar-plus text-success me-2"></i>
+                      <span class="fw-bold">Ngày đăng:</span>
+                      <span class="ms-2" th:text="${#temporals.format(blog.createdAt, 'dd/MM/yyyy HH:mm')}"></span>
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="d-flex align-items-center mb-2" th:if="${blog.category != null}">
+                      <i class="fas fa-tags text-info me-2"></i>
+                      <span class="fw-bold">Danh mục:</span>
+                      <span class="badge bg-info text-dark ms-2" th:text="${blog.category.name}"></span>
+                    </div>
+                    <div class="d-flex align-items-center mb-2" th:if="${blog.updatedAt != null and blog.updatedAt != blog.createdAt}">
+                      <i class="fas fa-calendar-edit text-warning me-2"></i>
+                      <span class="fw-bold">Cập nhật:</span>
+                      <span class="ms-2" th:text="${#temporals.format(blog.updatedAt, 'dd/MM/yyyy HH:mm')}"></span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Blog Content -->
+              <div class="blog-content">
+                <div th:utext="${#strings.replace(blog.content, T(java.lang.System).lineSeparator(), '&lt;br&gt;')}"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Related Actions -->
+      <div class="card shadow-sm">
+        <div class="card-header">
+          <h5 class="mb-0">
+            <i class="fas fa-share-alt me-2"></i>Chia sẻ & Tương tác
+          </h5>
+        </div>
+        <div class="card-body">
+          <div class="row">
+            <div class="col-md-6">
+              <h6 class="fw-bold mb-3">Chia sẻ bài viết</h6>
+              <div class="btn-group" role="group">
+                <button type="button" class="btn btn-outline-primary" onclick="shareToFacebook()">
+                  <i class="fab fa-facebook-f"></i> Facebook
+                </button>
+                <button type="button" class="btn btn-outline-info" onclick="shareToTwitter()">
+                  <i class="fab fa-twitter"></i> Twitter
+                </button>
+                <button type="button" class="btn btn-outline-success" onclick="copyLink()">
+                  <i class="fas fa-link"></i> Copy Link
+                </button>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <h6 class="fw-bold mb-3">Thống kê</h6>
+              <div class="row">
+                <div class="col-6">
+                  <div class="text-center">
+                    <i class="fas fa-eye fa-2x text-muted mb-1"></i>
+                    <p class="mb-0 small">Lượt xem</p>
+                    <span class="fw-bold">--</span>
+                  </div>
+                </div>
+                <div class="col-6">
+                  <div class="text-center">
+                    <i class="fas fa-calendar fa-2x text-muted mb-1"></i>
+                    <p class="mb-0 small">Tuổi bài viết</p>
+                    <span class="fw-bold" th:text="${#temporals.formatDiff(blog.createdAt, T(java.time.LocalDateTime).now())}">--</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Sidebar -->
+    <div class="col-lg-4">
+      <div class="action-buttons">
+        <!-- Action Buttons -->
+        <div class="card shadow-sm mb-4">
+          <div class="card-header">
+            <h6 class="mb-0">
+              <i class="fas fa-cogs me-2"></i>Quản lý bài viết
+            </h6>
+          </div>
+          <div class="card-body">
+            <div class="d-grid gap-2">
+              <a th:href="@{/blogs/{id}/edit(id=${blog.id})}" class="btn btn-warning">
+                <i class="fas fa-edit me-2"></i>Chỉnh sửa bài viết
+              </a>
+              <a th:href="@{/blogs/{id}/delete(id=${blog.id})}"
+                 class="btn btn-danger"
+                 onclick="return confirm('Bạn có chắc muốn xoá bài viết này không?')">
+                <i class="fas fa-trash me-2"></i>Xóa bài viết
+              </a>
+              <hr>
+              <a href="/blogs" class="btn btn-outline-secondary">
+                <i class="fas fa-arrow-left me-2"></i>Quay lại danh sách
+              </a>
+              <a href="/blogs/create" class="btn btn-outline-primary">
+                <i class="fas fa-plus me-2"></i>Viết bài mới
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Blog Navigation -->
+        <div class="card shadow-sm mb-4">
+          <div class="card-header">
+            <h6 class="mb-0">
+              <i class="fas fa-compass me-2"></i>Điều hướng
+            </h6>
+          </div>
+          <div class="card-body">
+            <div class="d-grid gap-2">
+              <button class="btn btn-outline-info btn-sm" onclick="scrollToTop()">
+                <i class="fas fa-arrow-up me-1"></i>Lên đầu trang
+              </button>
+              <button class="btn btn-outline-info btn-sm" onclick="scrollToBottom()">
+                <i class="fas fa-arrow-down me-1"></i>Xuống cuối trang
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Quick Info -->
+        <div class="card shadow-sm">
+          <div class="card-header">
+            <h6 class="mb-0">
+              <i class="fas fa-info-circle me-2"></i>Thông tin nhanh
+            </h6>
+          </div>
+          <div class="card-body">
+            <div class="row text-center">
+              <div class="col-6">
+                <div class="border-end">
+                  <i class="fas fa-file-word text-primary fa-2x mb-2"></i>
+                  <p class="mb-0 small">Số từ</p>
+                  <span class="fw-bold" id="wordCount">--</span>
+                </div>
+              </div>
+              <div class="col-6">
+                <i class="fas fa-clock text-success fa-2x mb-2"></i>
+                <p class="mb-0 small">Thời gian đọc</p>
+                <span class="fw-bold" id="readTime">-- phút</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+  // Calculate reading progress
+  function updateReadingProgress() {
+    const article = document.querySelector('.blog-content');
+    const progressBar = document.getElementById('readingProgress');
+
+    if (article && progressBar) {
+      const articleTop = article.offsetTop;
+      const articleHeight = article.offsetHeight;
+      const scrolled = window.scrollY - articleTop;
+      const progress = Math.min(Math.max(scrolled / articleHeight, 0), 1);
+
+      progressBar.style.width = (progress * 100) + '%';
+    }
+  }
+
+  // Calculate word count and reading time
+  function calculateStats() {
+    const content = document.querySelector('.blog-content').innerText;
+    const words = content.trim().split(/\s+/).length;
+    const readingTime = Math.ceil(words / 200); // Average reading speed: 200 words/minute
+
+    document.getElementById('wordCount').textContent = words.toLocaleString();
+    document.getElementById('readTime').textContent = readingTime;
+  }
+
+  // Scroll functions
+  function scrollToTop() {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
+  function scrollToBottom() {
+    window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
+  }
+
+  // Share functions
+  function shareToFacebook() {
+    const url = encodeURIComponent(window.location.href);
+    window.open(`https://www.facebook.com/sharer/sharer.php?u=${url}`, '_blank');
+  }
+
+  function shareToTwitter() {
+    const url = encodeURIComponent(window.location.href);
+    const text = encodeURIComponent(document.title);
+    window.open(`https://twitter.com/intent/tweet?url=${url}&text=${text}`, '_blank');
+  }
+
+  function copyLink() {
+    navigator.clipboard.writeText(window.location.href).then(() => {
+      alert('Đã copy link vào clipboard!');
+    });
+  }
+
+  // Event listeners
+  window.addEventListener('scroll', updateReadingProgress);
+  window.addEventListener('load', calculateStats);
+</script>
 </body>
 </html>

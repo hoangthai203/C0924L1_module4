@@ -1,32 +1,311 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-  <title>Danh sách danh mục</title>
+  <title>Quản lý danh mục</title>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+  <style>
+    .category-card {
+      transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+    }
+    .category-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+    }
+    .header-section {
+      background: linear-gradient(135deg, #28a745 0%, #20c997 100%);
+    }
+    .stats-card {
+      border-left: 4px solid #28a745;
+    }
+  </style>
 </head>
-<body>
-<div class="container mt-4">
-  <h2>Danh sách danh mục</h2>
-  <a class="btn btn-primary mb-3" th:href="@{/categories/create}">Thêm danh mục</a>
-  <table class="table table-bordered">
-    <thead>
-    <tr>
-      <th>ID</th>
-      <th>Tên danh mục</th>
-      <th>Hành động</th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr th:each="c : ${categories}">
-      <td th:text="${c.id}">1</td>
-      <td th:text="${c.name}">Tin tức</td>
-      <td>
-        <a th:href="@{'/categories/' + ${c.id} + '/edit'}" class="btn btn-sm btn-warning">Sửa</a>
-        <a th:href="@{'/categories/' + ${c.id} + '/delete'}" class="btn btn-sm btn-danger" onclick="return confirm('Bạn có chắc muốn xoá?')">Xoá</a>
-      </td>
-    </tr>
-    </tbody>
-  </table>
+<body class="bg-light">
+<div class="container-fluid mt-4">
+  <!-- Header Section -->
+  <div class="header-section text-white p-4 rounded mb-4">
+    <div class="row align-items-center">
+      <div class="col-md-6">
+        <h1 class="mb-2">
+          <i class="fas fa-tags me-2"></i>Quản lý danh mục
+        </h1>
+        <p class="mb-0">Tổ chức và phân loại bài viết theo chủ đề</p>
+      </div>
+      <div class="col-md-6 text-end">
+        <a href="/categories/create" class="btn btn-light btn-lg">
+          <i class="fas fa-plus me-2"></i>Thêm danh mục mới
+        </a>
+        <a href="/blogs" class="btn btn-outline-light ms-2">
+          <i class="fas fa-blog me-2"></i>Quay lại Blog
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Success/Error Messages -->
+  <div th:if="${success}" class="alert alert-success alert-dismissible fade show" role="alert">
+    <i class="fas fa-check-circle me-2"></i>
+    <span th:text="${success}"></span>
+    <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+  </div>
+
+  <!-- Statistics Cards -->
+  <div class="row mb-4">
+    <div class="col-md-3">
+      <div class="card stats-card">
+        <div class="card-body">
+          <div class="d-flex align-items-center">
+            <div class="flex-grow-1">
+              <h6 class="text-muted mb-1">Tổng danh mục</h6>
+              <h4 class="mb-0" th:text="${#lists.size(categories)}">0</h4>
+            </div>
+            <div class="text-success">
+              <i class="fas fa-tags fa-2x"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-3">
+      <div class="card stats-card">
+        <div class="card-body">
+          <div class="d-flex align-items-center">
+            <div class="flex-grow-1">
+              <h6 class="text-muted mb-1">Danh mục có bài viết</h6>
+              <h4 class="mb-0" th:text="${#lists.size(categories.?[blogs != null and #lists.size(blogs) > 0])}">0</h4>
+            </div>
+            <div class="text-info">
+              <i class="fas fa-file-alt fa-2x"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-3">
+      <div class="card stats-card">
+        <div class="card-body">
+          <div class="d-flex align-items-center">
+            <div class="flex-grow-1">
+              <h6 class="text-muted mb-1">Danh mục trống</h6>
+              <h4 class="mb-0" th:text="${#lists.size(categories.?[blogs == null or #lists.size(blogs) == 0])}">0</h4>
+            </div>
+            <div class="text-warning">
+              <i class="fas fa-folder-open fa-2x"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-3">
+      <div class="card stats-card">
+        <div class="card-body">
+          <div class="d-flex align-items-center">
+            <div class="flex-grow-1">
+              <h6 class="text-muted mb-1">Tổng bài viết</h6>
+              <h4 class="mb-0" th:text="${#aggregates.sum(categories.![blogs != null ? #lists.size(blogs) : 0])}">0</h4>
+            </div>
+            <div class="text-primary">
+              <i class="fas fa-newspaper fa-2x"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Categories List -->
+  <div class="card">
+    <div class="card-header d-flex justify-content-between align-items-center">
+      <h5 class="mb-0">
+        <i class="fas fa-list me-2"></i>Danh sách danh mục
+        <span class="badge bg-success ms-2" th:text="${#lists.size(categories)}"></span>
+      </h5>
+      <div class="btn-group" role="group">
+        <button type="button" class="btn btn-outline-secondary btn-sm active" onclick="toggleView('table')">
+          <i class="fas fa-table"></i> Dạng bảng
+        </button>
+        <button type="button" class="btn btn-outline-secondary btn-sm" onclick="toggleView('cards')">
+          <i class="fas fa-th-large"></i> Dạng thẻ
+        </button>
+      </div>
+    </div>
+
+    <!-- Table View -->
+    <div id="tableView" class="card-body p-0">
+      <div class="table-responsive">
+        <table class="table table-hover mb-0">
+          <thead class="table-dark">
+          <tr>
+            <th><i class="fas fa-hashtag me-1"></i>ID</th>
+            <th><i class="fas fa-tag me-1"></i>Tên danh mục</th>
+            <th><i class="fas fa-file-alt me-1"></i>Số bài viết</th>
+            <th><i class="fas fa-calendar me-1"></i>Bài viết mới nhất</th>
+            <th><i class="fas fa-cogs me-1"></i>Hành động</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr th:each="category : ${categories}" th:if="${not #lists.isEmpty(categories)}">
+            <td>
+              <span class="badge bg-secondary" th:text="${category.id}"></span>
+            </td>
+            <td>
+              <div class="d-flex align-items-center">
+                <i class="fas fa-folder text-warning me-2"></i>
+                <span class="fw-bold" th:text="${category.name}"></span>
+              </div>
+            </td>
+            <td>
+              <span class="badge bg-info"
+                    th:text="${category.blogs != null ? #lists.size(category.blogs) : 0}"></span>
+              <span th:if="${category.blogs != null and #lists.size(category.blogs) > 0}" class="text-success ms-1">
+                <i class="fas fa-check-circle"></i>
+              </span>
+            </td>
+            <td>
+              <span th:if="${category.blogs != null and not #lists.isEmpty(category.blogs)}"
+                    class="text-muted small">
+                <i class="fas fa-clock me-1"></i>
+                <!-- Giả sử có bài viết mới nhất -->
+                Có bài viết
+              </span>
+              <span th:unless="${category.blogs != null and not #lists.isEmpty(category.blogs)}"
+                    class="text-muted fst-italic small">
+                Chưa có bài viết
+              </span>
+            </td>
+            <td>
+              <div class="btn-group btn-group-sm" role="group">
+                <a th:href="@{/blogs(categoryId=${category.id})}"
+                   class="btn btn-outline-info"
+                   data-bs-toggle="tooltip"
+                   title="Xem bài viết trong danh mục">
+                  <i class="fas fa-eye"></i>
+                </a>
+                <a th:href="@{'/categories/' + ${category.id} + '/edit'}"
+                   class="btn btn-outline-warning"
+                   data-bs-toggle="tooltip"
+                   title="Chỉnh sửa danh mục">
+                  <i class="fas fa-edit"></i>
+                </a>
+                <a th:href="@{'/categories/' + ${category.id} + '/delete'}"
+                   class="btn btn-outline-danger"
+                   data-bs-toggle="tooltip"
+                   title="Xóa danh mục"
+                   onclick="return confirm('Bạn có chắc muốn xoá danh mục này? Các bài viết trong danh mục sẽ không bị xóa.')">
+                  <i class="fas fa-trash"></i>
+                </a>
+              </div>
+            </td>
+          </tr>
+          <tr th:if="${#lists.isEmpty(categories)}">
+            <td colspan="5" class="text-center py-5">
+              <div class="text-muted">
+                <i class="fas fa-tags fa-3x mb-3"></i>
+                <p class="h5">Chưa có danh mục nào</p>
+                <p>Hãy tạo danh mục đầu tiên để tổ chức bài viết của bạn.</p>
+                <a href="/categories/create" class="btn btn-success">
+                  <i class="fas fa-plus me-1"></i>Tạo danh mục đầu tiên
+                </a>
+              </div>
+            </td>
+          </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- Card View -->
+    <div id="cardView" style="display: none;" class="card-body">
+      <div class="row" th:if="${not #lists.isEmpty(categories)}">
+        <div class="col-md-6 col-lg-4 mb-4" th:each="category : ${categories}">
+          <div class="card category-card h-100 shadow-sm">
+            <div class="card-body">
+              <div class="d-flex align-items-center mb-3">
+                <div class="bg-warning bg-opacity-25 p-3 rounded-circle me-3">
+                  <i class="fas fa-folder text-warning fa-2x"></i>
+                </div>
+                <div class="flex-grow-1">
+                  <h5 class="card-title mb-1" th:text="${category.name}"></h5>
+                  <p class="card-text text-muted mb-0">
+                    ID: <span th:text="${category.id}"></span>
+                  </p>
+                </div>
+              </div>
+
+              <div class="row text-center mb-3">
+                <div class="col-6">
+                  <div class="border-end">
+                    <h4 class="mb-0 text-info" th:text="${category.blogs != null ? #lists.size(category.blogs) : 0}"></h4>
+                    <small class="text-muted">Bài viết</small>
+                  </div>
+                </div>
+                <div class="col-6">
+                  <h4 class="mb-0" th:classappend="${category.blogs != null and #lists.size(category.blogs) > 0} ? 'text-success' : 'text-muted'">
+                    <i class="fas" th:classappend="${category.blogs != null and #lists.size(category.blogs) > 0} ? 'fa-check-circle' : 'fa-circle'"></i>
+                  </h4>
+                  <small class="text-muted" th:text="${category.blogs != null and #lists.size(category.blogs) > 0} ? 'Có nội dung' : 'Trống'"></small>
+                </div>
+              </div>
+            </div>
+
+            <div class="card-footer">
+              <div class="btn-group w-100" role="group">
+                <a th:href="@{/blogs(categoryId=${category.id})}" class="btn btn-outline-info btn-sm">
+                  <i class="fas fa-eye"></i> Xem
+                </a>
+                <a th:href="@{'/categories/' + ${category.id} + '/edit'}" class="btn btn-outline-warning btn-sm">
+                  <i class="fas fa-edit"></i> Sửa
+                </a>
+                <a th:href="@{'/categories/' + ${category.id} + '/delete'}"
+                   class="btn btn-outline-danger btn-sm"
+                   onclick="return confirm('Bạn có chắc muốn xoá danh mục này?')">
+                  <i class="fas fa-trash"></i> Xóa
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Empty state for card view -->
+      <div th:if="${#lists.isEmpty(categories)}" class="text-center py-5">
+        <i class="fas fa-tags fa-4x text-muted mb-3"></i>
+        <h5 class="text-muted">Chưa có danh mục nào</h5>
+        <p class="text-muted">Hãy tạo danh mục đầu tiên để tổ chức bài viết của bạn.</p>
+        <a href="/categories/create" class="btn btn-success">
+          <i class="fas fa-plus me-1"></i>Tạo danh mục đầu tiên
+        </a>
+      </div>
+    </div>
+  </div>
 </div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+  // Initialize tooltips
+  var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
+  var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+    return new bootstrap.Tooltip(tooltipTriggerEl)
+  })
+
+  // Toggle between table and card view
+  function toggleView(viewType) {
+    const tableView = document.getElementById('tableView');
+    const cardView = document.getElementById('cardView');
+    const buttons = document.querySelectorAll('.btn-group button');
+
+    if (viewType === 'cards') {
+      tableView.style.display = 'none';
+      cardView.style.display = 'block';
+      buttons[0].classList.remove('active');
+      buttons[1].classList.add('active');
+    } else {
+      tableView.style.display = 'block';
+      cardView.style.display = 'none';
+      buttons[0].classList.add('active');
+      buttons[1].classList.remove('active');
+    }
+  }
+</script>
 </body>
 </html>
